@@ -1,5 +1,6 @@
 Kasiopea API
 ===
+[![GitHub (pre-)release](https://img.shields.io/github/release/Sorashi/KasiopeaApi/all.svg)](https://github.com/Sorashi/KasiopeaApi/releases/latest)
 
 This is an unoffical .NET web-scrapping API for the [Kasiopea](https://kasiopea.matfyz.cz) competition.
 
