@@ -13,6 +13,20 @@ This is an unoffical .NET web-scrapping API for the [Kasiopea](https://kasiopea.
 
 ## Get started
 
+### Installation
+
+Download the `.nupkg` from [Releases](https://github.com/Sorashi/KasiopeaApi/releases/latest) and use Package Manager Console from Visual Studio. Run `Install-Package "path-to-the.nupkg"`
+
+![](https://user-images.githubusercontent.com/6270283/29934511-c7bf6f84-8e7b-11e7-9188-c54966a24d4e.png)
+
+[comment]: # (Fallback image: https://a.doko.moe/awjfpp.png)
+
+If you don't use Visual Studio, you either have to unpack the .nupkg (it's a zip), reference the DLL and install the [dependencies](#dependencies) yourself, or you need to find [another way](https://stackoverflow.com/questions/10240029/how-to-install-a-nuget-package-nupkg-file-locally).
+
+*I don't want to redistribute the dependencies, since this software doesn't have any license yet. That's why I use a NuGet package.*
+
+### Usage
+
 The fastest way to get started is using the relative URL to the task you are solving. For example `/archiv/2016/doma/D/` refers to [this task](https://kasiopea.matfyz.cz/archiv/2016/doma/D/).
 
 ```csharp
@@ -53,3 +67,8 @@ static async Task MainAsync(){
 	// do your async stuff
 }
 ```
+
+## Dependencies
+
+- [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
+- [RestSharp](https://www.nuget.org/packages/RestSharp/)
