@@ -1,8 +1,10 @@
-﻿namespace KasiopeaApi.Tests
+﻿using System;
+
+namespace KasiopeaApi.Tests
 {
     internal static class Credentials
     {
-        public const string Email = "YOUR_EMAIL";
-        public const string Password = "YOUR_PASSWORD";
+        public static readonly string Email = Environment.GetEnvironmentVariable("kasiopea_email");
+        public static readonly string Password = Environment.GetEnvironmentVariable("kasiopea_password");
     }
 }
