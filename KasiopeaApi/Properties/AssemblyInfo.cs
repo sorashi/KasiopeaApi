@@ -38,7 +38,7 @@ using System.Runtime.InteropServices;
     ThisAssembly.Git.SemVer.Major + "." +
     ThisAssembly.Git.SemVer.Minor + "." +
     ThisAssembly.Git.SemVer.Patch + "-" +
-    "alpha" + "+" +
+    "alpha" + "+" + ThisAssembly.Git.Branch + "." +
     ThisAssembly.Git.Commit)]
 [assembly:
     AssemblyFileVersion(ThisAssembly.Git.SemVer.Major + "." + ThisAssembly.Git.SemVer.Minor + "." +
