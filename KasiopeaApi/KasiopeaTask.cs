@@ -142,8 +142,8 @@ namespace KasiopeaApi
             var res = await kInterface.ExecuteRequest(request);
             var doc = new HtmlDocument {OptionFixNestedTags = true};
             doc.LoadHtml(res.Content);
-            var messages = doc.DocumentNode.SelectNodes("//p[@class='error']")
-                ?.Select(x => x.InnerText)
+            var messages = (doc.DocumentNode.SelectNodes("//p[@class='error']")
+                ?.Select(x => x.InnerText) ?? Enumerable.Empty<string>())
                 .Concat(
                     doc.DocumentNode.SelectNodes("//p[@class='okay']")?.Select(x => x.InnerText) ?? Enumerable.Empty<string>()
                 );
