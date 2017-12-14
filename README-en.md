@@ -3,7 +3,7 @@ Kasiopea API
 [![GitHub (pre-)release](https://img.shields.io/github/release/Sorashi/KasiopeaApi/all.svg)](https://github.com/Sorashi/KasiopeaApi/releases/latest)
 [![AppVeyor branch](https://img.shields.io/appveyor/ci/Sorashi/KasiopeaApi/master.svg)](https://ci.appveyor.com/project/Sorashi/kasiopeaapi) [CZ](./README.md)/[EN](./README-en.md)
 
-This is an unoffical .NET web-scrapping API for the [Kasiopea](https://kasiopea.matfyz.cz) competition.
+This is an unoffical .NET web-scraping API for the [Kasiopea](https://kasiopea.matfyz.cz) competition.
 
 > `Install-Package KasiopeaApi -IncludePrerelease`
 
