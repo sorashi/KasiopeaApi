@@ -7,10 +7,14 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <projectUrl>https://github.com/Sorashi/KasiopeaApi</projectUrl>
+    <licenseUrl>https://rawgit.com/Sorashi/KasiopeaApi/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An unoffical .NET web-scrapping API for the kasiopea.matfyz.cz competition.</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright $author$ 2017</copyright>
     <tags>Kasiopea</tags>
   </metadata>
+  <files>
+	<file src="..\LICENSE" target="Content\Licenses\LICENSE" />
+  </files>
 </package>
