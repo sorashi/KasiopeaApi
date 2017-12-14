@@ -30,7 +30,7 @@ Pokud nepoužíváš Visual Studio, musíš mít [NuGet console](https://chocola
 
 ### Použití
 
-Nejrychlejší způsob jak začít je použít relativní URL na úlohu, kterou řešíš. Například `/archiv/2016/doma/D/` odkazuje na [tuto úlohu](https://kasiopea.matfyz.cz/archiv/2016/doma/D/).
+Nejrychlejší způsob, jak začít, je použít relativní URL na úlohu, kterou řešíš. Například `/archiv/2016/doma/D/` odkazuje na [tuto úlohu](https://kasiopea.matfyz.cz/archiv/2016/doma/D/).
 
 Příklad
 
