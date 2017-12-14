@@ -1,75 +1,93 @@
 Kasiopea API
 ===
 [![GitHub (pre-)release](https://img.shields.io/github/release/Sorashi/KasiopeaApi/all.svg)](https://github.com/Sorashi/KasiopeaApi/releases/latest)
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/Sorashi/KasiopeaApi/master.svg)](https://ci.appveyor.com/project/Sorashi/kasiopeaapi)
+[![AppVeyor branch](https://img.shields.io/appveyor/ci/Sorashi/KasiopeaApi/master.svg)](https://ci.appveyor.com/project/Sorashi/kasiopeaapi) [CZ](./README.md)/[EN](./README-en.md)
 
-This is an unoffical .NET web-scrapping API for the [Kasiopea](https://kasiopea.matfyz.cz) competition.
+Neoficiální .NET web-scrapping API pro soutěž [Kasiopea](https://kasiopea.matfyz.cz).
 
-## This API allows you to
+> `Install-Package KasiopeaApi -IncludePrerelease`
 
-- [x] Require the input open-data, post your answer and know the result (success/fail)
-- [x] Read the competition tasks – name and description (even from the archive section)
-- [x] Read the competition result list and iterate through it
-- [x] Satisfy your OCD
+## Pomocí tohoto API můžeš
 
-## Get started
+- [x] Získat vstup, odeslat svůj výstup a zjistit úspěšnost (success/fail)
+- [x] Číst názvy a zadání úloh (i ze sekce Archiv)
+- [x] Číst a iterovat tabulku výsledků
+- [x] Uspokojit svou OCD
 
-### Installation
+## Jak začít
 
-Download the `.nupkg` from [Releases](https://github.com/Sorashi/KasiopeaApi/releases/latest) and use Package Manager Console from Visual Studio. Run `Install-Package "path-to-the.nupkg"`
+### Instalace
+
+Nejjednodušší je použít Package Manager Console ve Visual Studiu. Spusť `Install-Package KasiopeaApi -IncludePrerelease`
+
+Jelikož používáme [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), musíš mít alespoň Visual Studio 2017 (verze 15.3) nebo NuGet client 4.3.0 a výš.
 
 ![](https://user-images.githubusercontent.com/6270283/29934511-c7bf6f84-8e7b-11e7-9188-c54966a24d4e.png)
 
 [comment]: # (Fallback image: https://a.doko.moe/awjfpp.png)
 
-If you don't use Visual Studio, you either have to unpack the .nupkg (it's a zip), reference the DLL and install the [dependencies](#dependencies) yourself, or you need to find [another way](https://stackoverflow.com/questions/10240029/how-to-install-a-nuget-package-nupkg-file-locally).
+Pokud nepoužíváš Visual Studio, musíš mít [NuGet console](https://chocolatey.org/packages/NuGet.CommandLine) a spustit `nuget install KasiopeaApi -PreRelease` ve složce s projektem.
 
-*I don't want to redistribute the dependencies, since this software doesn't have any license yet. That's why I use a NuGet package.*
+### Použití
 
-### Usage
+Nejrychlejší způsob jak začít je použít relativní URL na úlohu, kterou řešíš. Například `/archiv/2016/doma/D/` odkazuje na [tuto úlohu](https://kasiopea.matfyz.cz/archiv/2016/doma/D/).
 
-The fastest way to get started is using the relative URL to the task you are solving. For example `/archiv/2016/doma/D/` refers to [this task](https://kasiopea.matfyz.cz/archiv/2016/doma/D/).
+Příklad
 
 ```csharp
 var kasiopeaInterface = new KasiopeaInterface();
 var loginSucceeded = await kasiopeaInterface.Login("email", "password");
 var task = await KasiopeaTask.FromUrl("/archiv/2016/doma/D/");
-var version = KasiopeaTask.InputVersion.Easy; // or InputVersion.Hard (hard input has more difficult constraints)
+var version = KasiopeaTask.InputVersion.Easy; // nebo InputVersion.Hard (těžší vstup)
 var reader = await task.GetInputReaderAsync(version, kasiopeaInterface);
 var writer = task.GetOutputWriter();
 
-// read the input with
+// čti vstup pomocí
 reader.ReadLine();
-// write the output with
+// piš výstup pomocí
 writer.WriteLine();
-// or clear the output and start fresh
+// nebo vyčisti výstup a začni odznovu
 task.ClearStreamWriter();
 
-// post the output and get the KasiopeaTask.OutputCheckResult (Success, Fail, Timeout, MissingFile, Unknown)
+// odešli výstup a zkontroluj KasiopeaTask.OutputCheckResult (Success, Fail, Timeout, MissingFile, Unknown)
 var result = await task.PostOutputAsync(version, kasiopeaInterface);
 if(result == KasiopeaTask.OutputCheckResult.Success)
-	Console.WriteLine("Hurray");
+	Console.WriteLine("Hurá");
 else
 	Console.WriteLine(result.ToString());
 ```
 
-How to use await from the application entry-point?
+<details>
+<summary><strike>Jak použít await ze vstupního bodu aplikace?</strike></summary>
+
 ```csharp
-static void Main(){
-	try{
+static void Main() {
+	try {
 		MainAsync().Wait();
 	}
-	catch(Exception e){
+	catch(Exception e) {
 		while(e is AggregateException) e = e.InnerException;
 		throw e;
 	}
 }
-static async Task MainAsync(){
+static async Task MainAsync() {
+	// do your async stuff
+}
+```
+</details>
+
+Od C# 7.1 lze označit vstupní bod jako asynchronní metodu.
+```csharp
+static async Task Main() {
 	// do your async stuff
 }
 ```
 
-## Dependencies
+## Závislosti
 
 - [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
 - [RestSharp](https://www.nuget.org/packages/RestSharp/)
+
+## Licence
+
+[MIT](https://rawgit.com/Sorashi/KasiopeaApi/master/LICENSE) licence
