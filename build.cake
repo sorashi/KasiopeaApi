@@ -11,6 +11,9 @@ var configuration = Argument("configuration", "Release");
 var solution = "./KasiopeaApi.sln";
 var buildDir = Directory("./KasiopeaApi/bin") + Directory(configuration);
 
+var version = GitVersion();
+var nugetResultPath = $"./nuget/KasiopeaApi.{version.NuGetVersion}.nupkg";
+
 ///////////////////////////////////////////////////////////////////////////////
 // SETUP / TEARDOWN
 ///////////////////////////////////////////////////////////////////////////////
@@ -42,7 +45,6 @@ Task("NuGet-Restore")
 Task("Generate-AssemblyInfo")
     .Does(() => {
         var assemblyInfoPath = "./KasiopeaApi/Properties/AssemblyInfo.cs";
-        var version = GitVersion();
         CreateAssemblyInfo(assemblyInfoPath, new AssemblyInfoSettings {
             Title = "KasiopeaApi",
             Company = "sorashi",
@@ -87,7 +89,7 @@ Task("NuGet-Pack")
     .Does(() => {
         var settings = new NuGetPackSettings {
             Id = "KasiopeaApi",
-            Version = GitVersion().NuGetVersion,
+            Version = version.NuGetVersion,
             Title = "KasiopeaApi",
             Authors = new [] {"sorashi"},
             Owners = new [] {"sorashi"},
@@ -111,8 +113,8 @@ Task("NuGet-Publish")
     .Does(() => {
         var key = EnvironmentVariable("nuget_api_key");
         if(key == null) Error("nuget_api_key variable is missing in environment");
-        NuGetPush("./nuget/*.nuget", new NuGetPushSettings {
-            Source = "https://packages.nuget.org/v1/FeedService.svc/",
+        NuGetPush(nugetResultPath, new NuGetPushSettings {
+            Source = @"https://www.nuget.org/",
             ApiKey = key
          });
     });
@@ -120,7 +122,7 @@ Task("Default")
     .IsDependentOn("NuGet-Pack")
     .Does(() => {
         if(AppVeyor.IsRunningOnAppVeyor) {
-            AppVeyor.UploadArtifact("./nuget/*.nupkg");
+            AppVeyor.UploadArtifact(nugetResultPath);
         }
     });
 
