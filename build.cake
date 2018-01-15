@@ -56,7 +56,7 @@ Task("Generate-AssemblyInfo")
         });
         if(AppVeyor.IsRunningOnAppVeyor) {
             // 0.1.2-alpha.12+develop.abcdef0
-            AppVeyor.UpdateBuildVersion($"{version.SemVer}+{version.BranchName}.{version.Sha.Substring(0, 7)}");
+            AppVeyor.UpdateBuildVersion($"{version.SemVer}+{version.BranchName}.{version.Sha.Substring(0, 7)}.{AppVeyor.Environment.Build.Number}");
         }
     });
 Task("Build")
