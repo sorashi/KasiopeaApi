@@ -4,6 +4,8 @@ Kasiopea API
 
 [![Discord](https://img.shields.io/discord/404269352335048704.svg)][discord]
 
+[![NuGet](https://img.shields.io/nuget/dt/KasiopeaApi.svg)](https://www.nuget.org/packages/KasiopeaApi/)
+[![NuGet](https://img.shields.io/nuget/v/KasiopeaApi.svg)](https://www.nuget.org/packages/KasiopeaApi/)
 [![AppVeyor branch](https://img.shields.io/appveyor/ci/Sorashi/KasiopeaApi/master.svg)](https://ci.appveyor.com/project/Sorashi/kasiopeaapi)
 [![GitHub issues](https://img.shields.io/github/issues/Sorashi/KasiopeaApi.svg)](https://github.com/Sorashi/KasiopeaApi/issues)
 [![Trello](https://img.shields.io/badge/board-on%20trello-brightgreen.svg)](https://trello.com/b/g63MxKDP)
