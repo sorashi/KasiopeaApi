@@ -1,5 +1,7 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
 #tool "nuget:?package=GitVersion.CommandLine"
+#addin "nuget:?package=NuGet.Core"
+#addin "Cake.ExtendedNuGet"
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -104,7 +106,14 @@ Task("NuGet-Pack")
             Files = new [] {
                 new NuSpecContent { Source = "KasiopeaApi.dll", Target = "lib/net452" },
                 new NuSpecContent { Source = "LICENSE", Target = "Content/Licenses/LICENSE"}
-            }
+            },
+            Dependencies = GetPackageReferences("./KasiopeaApi")
+                .Where(x => !x.IsDevelopmentDependency)
+                .Select(x => new NuSpecDependency { 
+                    Id = x.Id,
+                    Version = x.Version.ToString(),
+                    TargetFramework = x.TargetFramework.ToString() })
+                .ToList()
         };
         NuGetPack(settings);
     });
