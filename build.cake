@@ -102,7 +102,7 @@ Task("NuGet-Pack")
             BasePath = buildDir,
             OutputDirectory = "./nuget",
             Files = new [] {
-                new NuSpecContent { Source = "KasiopeaApi.dll", Target = "lib" },
+                new NuSpecContent { Source = "KasiopeaApi.dll", Target = "lib/net452" },
                 new NuSpecContent { Source = "LICENSE", Target = "Content/Licenses/LICENSE"}
             }
         };
