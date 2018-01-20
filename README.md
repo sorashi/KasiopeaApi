@@ -1,11 +1,17 @@
-Kasiopea API
+Kasiopea API 
 ===
-[![GitHub (pre-)release](https://img.shields.io/github/release/Sorashi/KasiopeaApi/all.svg)](https://github.com/Sorashi/KasiopeaApi/releases/latest)
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/Sorashi/KasiopeaApi/master.svg)](https://ci.appveyor.com/project/Sorashi/kasiopeaapi) [CZ](./README.md)/[EN](./README-en.md)
+[![CZ](https://download.kde.org/extra/flags/png/cz.png)](./README.md) | [![EN](https://download.kde.org/extra/flags/png/gb.png)](./README-en.md)
+
+[![Discord](https://img.shields.io/discord/404269352335048704.svg)][discord]
+
+[![AppVeyor branch](https://img.shields.io/appveyor/ci/Sorashi/KasiopeaApi/master.svg)](https://ci.appveyor.com/project/Sorashi/kasiopeaapi)
+[![GitHub issues](https://img.shields.io/github/issues/Sorashi/KasiopeaApi.svg)](https://github.com/Sorashi/KasiopeaApi/issues)
+[![Trello](https://img.shields.io/badge/board-on%20trello-brightgreen.svg)](https://trello.com/b/g63MxKDP)
+[![license](https://img.shields.io/github/license/sorashi/KasiopeaApi.svg)](./LICENSE)
 
 Neoficiální .NET web-scraping API pro soutěž [Kasiopea](https://kasiopea.matfyz.cz).
 
-> `Install-Package KasiopeaApi -IncludePrerelease`
+> `> Install-Package KasiopeaApi -IncludePrerelease`
 
 ## Pomocí tohoto API můžeš
 
@@ -83,6 +89,8 @@ static async Task Main() {
 }
 ```
 
+Pokud máš jakékoli dotazy, zeptej se na našem [Discord serveru][discord].
+
 ## Závislosti
 
 - [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
@@ -91,3 +99,5 @@ static async Task Main() {
 ## Licence
 
 [MIT](https://rawgit.com/Sorashi/KasiopeaApi/master/LICENSE) licence
+
+[discord]: https://discord.gg/bGzPAvy
