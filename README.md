@@ -11,7 +11,9 @@ Kasiopea API
 
 Neoficiální .NET web-scraping API pro soutěž [Kasiopea](https://kasiopea.matfyz.cz).
 
-> `> Install-Package KasiopeaApi -IncludePrerelease`
+```powershell
+Install-Package KasiopeaApi
+```
 
 ## Pomocí tohoto API můžeš
 
@@ -24,7 +26,7 @@ Neoficiální .NET web-scraping API pro soutěž [Kasiopea](https://kasiopea.mat
 
 ### Instalace
 
-Nejjednodušší je použít Package Manager Console ve Visual Studiu. Spusť `Install-Package KasiopeaApi -IncludePrerelease`
+Nejjednodušší je použít Package Manager Console ve Visual Studiu. Spusť `Install-Package KasiopeaApi`
 
 Jelikož používáme [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), musíš mít alespoň Visual Studio 2017 (verze 15.3) nebo NuGet client 4.3.0 a výš.
 
@@ -95,6 +97,14 @@ Pokud máš jakékoli dotazy, zeptej se na našem [Discord serveru][discord].
 
 - [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
 - [RestSharp](https://www.nuget.org/packages/RestSharp/)
+
+## Pre-release
+
+Pokud rád žiješ *na hraně*, instaluj pre-release verzi. Obsahuje nejnovější binárky, které ještě nebyly označeny za stabilní 😱
+
+```powershell
+Install-Package KasiopeaApi -IncludePrerelease
+```
 
 ## Licence
 

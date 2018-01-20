@@ -11,7 +11,9 @@ Kasiopea API
 
 This is an unoffical .NET web-scraping API for the [Kasiopea](https://kasiopea.matfyz.cz) competition.
 
-> `> Install-Package KasiopeaApi -IncludePrerelease`
+```powershell
+Install-Package KasiopeaApi
+```
 
 ## This API allows you to
 
@@ -24,7 +26,7 @@ This is an unoffical .NET web-scraping API for the [Kasiopea](https://kasiopea.m
 
 ### Installation
 
-Use Package Manager Console from Visual Studio. Run `Install-Package KasiopeaApi -IncludePrerelease`
+Use Package Manager Console from Visual Studio. Run `Install-Package KasiopeaApi`
 
 Since we're using [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), you need at least Visual Studio 2017 (version 15.3) or NuGet client 4.3.0 or above.
 
@@ -94,6 +96,14 @@ If you have any questions, ask in our [Discord server][discord].
 
 - [HtmlAgilityPack](https://www.nuget.org/packages/HtmlAgilityPack/)
 - [RestSharp](https://www.nuget.org/packages/RestSharp/)
+
+## Pre-release
+
+If you like living on the edge, install the pre-release version. It contains the newest binaries, that haven't even been marked as stable 😱
+
+```powershell
+Install-Package KasiopeaApi -IncludePrerelease
+```
 
 ## License
 
