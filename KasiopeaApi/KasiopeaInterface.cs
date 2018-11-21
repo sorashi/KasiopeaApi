@@ -49,7 +49,7 @@ namespace KasiopeaApi
             var doc = new HtmlDocument();
             doc.LoadHtml(response);
             var buts = doc.DocumentNode.Descendants("button");
-            var result = buts.Any(x => x.InnerText == "Přihlášen") && buts.Any(x => x.InnerText == "Odhlásit");
+            var result = buts.Any(x => x.InnerText.Trim() == "Odhlásit");
             LoggedIn = result;
             return result;
         }
