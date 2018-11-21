@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace KasiopeaApi.Tests
 {
-    [TestFixture]
+    [SetUpFixture]
     class CredentialsTest
     {
-        [Test]
+        [OneTimeSetUp]
         public void CredentialsPresentTest() {
             if(Credentials.Email == null || Credentials.Password == null) {
                 Assert.Fail("The environment variables kasiopea_email and kasiopea_password are not populated an therefore this project cannot be unit-tested." +
