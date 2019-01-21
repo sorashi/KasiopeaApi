@@ -110,6 +110,6 @@ Install-Package KasiopeaApi -IncludePrerelease
 
 ## Licence
 
-[MIT](https://rawgit.com/Sorashi/KasiopeaApi/master/LICENSE) licence
+[MIT](./LICENSE) licence
 
 [discord]: https://discord.gg/bGzPAvy
