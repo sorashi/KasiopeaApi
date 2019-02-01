@@ -96,7 +96,7 @@ Task("NuGet-Pack")
             Authors = new [] {"sorashi"},
             Owners = new [] {"sorashi"},
             ProjectUrl = new Uri(@"https://github.com/Sorashi/KasiopeaApi"),
-            LicenseUrl = new Uri(@"https://raw.githubusercontent.com/Sorashi/KasiopeaApi/master/LICENSE"),
+            LicenseUrl = new Uri(@"https://github.com/sorashi/KasiopeaApi/blob/master/LICENSE"),
             RequireLicenseAcceptance = false,
             Description = "An unoffical .NET web-scrapping API for the kasiopea.matfyz.cz competition.",
             Copyright = "Copyright sorashi 2018",
