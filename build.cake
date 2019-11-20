@@ -1,7 +1,8 @@
-#tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
-#tool "nuget:?package=GitVersion.CommandLine"
-#addin "nuget:?package=NuGet.Core"
-#addin "Cake.ExtendedNuGet"
+#tool nuget:?package=NUnit.ConsoleRunner&version=3.10.0
+#tool "nuget:?package=GitVersion.CommandLine&version=5.0.1"
+#addin "nuget:?package=NuGet.Core&version=2.14.0"
+#addin "Cake.ExtendedNuGet&version=2.1.1"
+#addin "NuGet.Protocol&version=5.0.2&loaddependencies=true"
 
 ///////////////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -110,8 +111,8 @@ Task("NuGet-Pack")
             Dependencies = GetPackageReferences("./KasiopeaApi")
                 .Where(x => !x.IsDevelopmentDependency)
                 .Select(x => new NuSpecDependency { 
-                    Id = x.Id,
-                    Version = x.Version.ToString(),
+                    Id = x.PackageIdentity.Id,
+                    Version = x.PackageIdentity.Version.ToString(),
                     TargetFramework = x.TargetFramework.ToString() })
                 .ToList()
         };
