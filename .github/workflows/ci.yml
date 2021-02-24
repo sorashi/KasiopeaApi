@@ -16,4 +16,9 @@ jobs:
         dotnet-version: 5.0.100
 
     - name: Build & test
+      env:
+        KASIOPEA_TEST_BASE: ${{ secrets.KASIOPEA_TEST_BASE }}
+        KASIOPEA_TEST_BASICAUTH: ${{ secrets.KASIOPEA_TEST_BASICAUTH }}
+        KASIOPEA_TEST_EMAIL: ${{ secrets.KASIOPEA_TEST_EMAIL }}
+        KASIOPEA_TEST_PASSWORD: ${{ secrets.KASIOPEA_TEST_PASSWORD }}
       run: dotnet test src/KasiopeaApi.sln --configuration Release
