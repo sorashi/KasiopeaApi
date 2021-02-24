@@ -21,4 +21,4 @@ jobs:
         KASIOPEA_TEST_BASICAUTH: ${{ secrets.KASIOPEA_TEST_BASICAUTH }}
         KASIOPEA_TEST_EMAIL: ${{ secrets.KASIOPEA_TEST_EMAIL }}
         KASIOPEA_TEST_PASSWORD: ${{ secrets.KASIOPEA_TEST_PASSWORD }}
-      run: dotnet test src/KasiopeaApi.sln --configuration Release
+      run: dotnet test src/KasiopeaApi.sln -l "console;verbosity=detailed" --configuration Release
