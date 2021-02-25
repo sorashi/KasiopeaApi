@@ -44,7 +44,7 @@ reader.ReadLine();
 // piš výstup pomocí
 writer.WriteLine();
 
-// odešli výstup a zkontroluj KasiopeaTask.OutputCheckResult (Success, Fail, Timeout, MissingFile, Unknown)
+// odešli výstup a zkontroluj výsledek
 var result = await k.PostOutputAsync();
 
 if(result == ApiAttemptState.Success)
