@@ -30,7 +30,7 @@ namespace KasiopeaApi
             letter = char.ToUpper(letter);
             var courses = await c.CoursesGet(year);
             try {
-                selectedTaskId = courses.Single(x => x.Kind == kind).Tasks.Single(x => x.Letter == letter.ToString())
+                selectedTaskId = courses.Where(x => x.Year == year).Single(x => x.Kind == kind).Tasks.Single(x => x.Letter == letter.ToString())
                     .Id;
             }
             catch {
